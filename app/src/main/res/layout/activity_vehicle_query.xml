@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/body_table_layout"
+    android:orientation="vertical"
+    tools:context=".ui.VehicleQueryActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="4">
+        <!-- 开始时间  -->
+        <TableRow>
+            <TextView android:text="@string/vehicle_query_start_datetime_title"/>
+            <EditText
+                android:layout_span="3"
+                android:id="@+id/vehicle_query_start_date"
+                android:hint="@string/vehicle_query_start_date_hint"
+                style="@style/date_time_edit_text"/>
+            <EditText
+                android:id="@+id/vehicle_query_start_time"
+                android:hint="@string/vehicle_query_start_time_hint"
+                style="@style/date_time_edit_text"/>
+            <TextView />
+        </TableRow>
+        <!-- 结束时间 -->
+        <TableRow>
+            <TextView android:text="@string/vehicle_query_end_datetime_title"/>
+            <EditText
+                android:layout_span="3"
+                android:id="@+id/vehicle_query_end_date"
+                android:hint="@string/vehicle_query_end_date_hint"
+                style="@style/date_time_edit_text"/>
+            <EditText
+                android:id="@+id/vehicle_query_end_time"
+                android:hint="@string/vehicle_query_end_time_hint"
+                style="@style/date_time_edit_text"/>
+        </TableRow>
+        <!-- 车牌号 -->
+        <TableRow>
+            <TextView android:text="@string/plate_no_title"
+                android:gravity="right" />
+            <Button
+                android:id="@+id/button_select_prov_city"
+                android:text="选择城市"
+                android:layout_width="wrap_content" />
+
+            <TextView
+                android:id="@+id/text_prov"
+                android:text="@string/plate_no_prov_default"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:textSize="@dimen/big_text_size"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/text_city"
+                android:text="@string/plate_no_city_default"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="8dp"
+                android:textSize="@dimen/big_text_size"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/plate_no"
+                android:text="ANDRO"
+                android:hint="@string/plate_no_5_hint"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView android:text="@string/vehicle_brand_title"/>
+            <EditText
+                android:layout_span="4"
+                android:id="@+id/vehicle_brand"
+                style="@style/date_time_edit_text"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="@string/vehicle_body_color_title"/>
+            <EditText
+                android:layout_span="4"
+                android:id="@+id/vehicle_body_color"
+                style="@style/date_time_edit_text"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView android:text="@string/select_police"/>
+            <EditText
+                android:layout_span="4"
+                android:id="@+id/select_police"
+                style="@style/date_time_edit_text"/>
+        </TableRow>
+    </TableLayout>
+    <Button
+        android:id="@+id/button_vehicle_query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/query"
+        style="@style/button_action"/>
+</LinearLayout>

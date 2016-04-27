@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="vehicle_query_url">http://172.27.35.1/traffic/map/a_queryVehicle.html</string>
+    <string name="now_url">http://172.27.35.1/traffic/map/a_now.html</string>
+    <string name="vehicle_query_result_total">total</string>
+    <string name="vehicle_query_result_rows">rows</string>
+    <string name="vehicle_query_result_plate_no">PLATENO</string>
+    <string name="vehicle_query_result_plate_color">PLATECOLOR</string>
+    <string name="vehicle_query_result_pass_time">PICTIME</string>
+    <string name="vehicle_query_result_cross">CROSSNAME</string>
+    <string name="vehicle_query_result_thumb">PICTHUMB</string>
+    <string name="vehicle_query_result_image">PICPATH</string>
+</resources>

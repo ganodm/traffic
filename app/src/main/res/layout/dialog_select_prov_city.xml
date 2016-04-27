@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/select_prov_city">
+
+    <TextView
+        android:text="@string/plate_no_prov_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:gravity="center_horizontal"/>
+
+    <TableLayout
+        android:id="@+id/table_prov"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <TextView android:text="黑" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="京" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="沪" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="津" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="渝" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="翼" style="@style/mean_distribution_horizontal"
+                android:textSize="20sp" />
+            <TextView android:text="晋" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="辽" style="@style/mean_distribution_horizontal"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="吉" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="苏" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="浙" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="皖" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="闽" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="赣" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="鲁" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="豫" style="@style/mean_distribution_horizontal"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="鄂" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="湘" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="粤" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="琼" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="川" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="贵" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="云" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="陕" style="@style/mean_distribution_horizontal"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="甘" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="青" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="蒙" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="桂" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="藏" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="宁" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="新" style="@style/mean_distribution_horizontal"/>
+            <TextView style="@style/mean_distribution_horizontal"/>
+        </TableRow>
+    </TableLayout>
+
+
+    <TextView
+        android:text="@string/plate_no_city_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:gravity="center_horizontal"/>
+    <TableLayout
+        android:id="@+id/table_city"
+        android:layout_width="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+            <TextView android:text="甘" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="青" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="蒙" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="桂" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="藏" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="宁" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="新" style="@style/mean_distribution_horizontal"/>
+            <TextView style="@style/mean_distribution_horizontal"/>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

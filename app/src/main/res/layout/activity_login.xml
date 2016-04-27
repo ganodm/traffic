@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.LoginActivity">
+
+    <TableLayout
+        style="@style/body_table_layout">
+
+        <TableRow>
+            <TextView android:text="@string/login_account_title"/>
+            <EditText android:id="@+id/account" android:hint="@string/login_account_hint"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="@string/login_password_title"/>
+            <EditText android:id="@+id/password" android:hint="@string/login_password_hint"
+                android:inputType="textPassword"/>
+        </TableRow>
+        <TableRow>
+            <Button android:id="@+id/login"
+                android:layout_span="2"
+                android:text="@string/login_button_text"/>
+        </TableRow>
+        <TableRow>
+            <CheckBox android:id="@+id/checkbox_remember_password"/>
+            <TextView android:text="@string/login_remember_password"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

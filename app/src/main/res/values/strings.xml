@@ -1,0 +1,85 @@
+<resources>
+
+    <string name="app_name">智能卡口</string>
+    <string name="action_settings">设置</string>
+
+    <string name="clear_cache_menu">Clear Caches</string>
+    <string name="clear_cache_complete_toast">Caches have been cleared</string>
+    <string name="imageview_description">Image Thumbnail</string>
+
+
+    <!-- 登录界面 -->
+    <string name="login_button_text">登录</string>
+    <string name="login_password_hint">请输入密码</string>
+    <string name="login_account_hint">请输入登录账号</string>
+    <string name="login_account_title">账号：</string>
+    <string name="login_password_title">密码：</string>
+    <string name="login_remember_password">记住账号和密码</string>
+
+    <!-- 主界面  -->
+    <string name="main_vehicle_query_title">车辆查询</string>
+    <string name="main_vehicle_query_hint">在指定时间范围内查询车辆抓拍记录</string>
+    <string name="main_ctrl_vehicle_title">布控车辆</string>
+    <string name="main_ctrl_vehicle_hint">将车辆添加到布控车辆库，抓拍到车辆时会报警</string>
+    <string name="main_alarm_realtime_title">布控报警</string>
+    <string name="main_alarm_realtime_hint">抓拍到布控车辆发出的报警</string>
+    <string name="main_device_update_position_title">更新设备位置</string>
+    <string name="main_device_update_position_hint">使用手机定位到坐标，更新设备的位置数据</string>
+
+    <!-- 车辆查询界面  -->
+    <string name="vehicle_query_start_datetime_title">开始时间：</string>
+    <string name="vehicle_query_start_date_hint">开始日期</string>
+    <string name="vehicle_query_start_time_hint">开始时间</string>
+    <string name="vehicle_query_end_datetime_title">截止时间：</string>
+    <string name="vehicle_query_end_time_hint">截止时间</string>
+    <string name="vehicle_query_end_date_hint">截止日期</string>
+
+    <!-- 车牌号输入部分 -->
+    <string name="plate_no_prov_default">黑</string>
+    <string name="plate_no_city_default">E</string>
+    <string name="plate_no_prov_title">选择省或直辖市简称</string>
+    <string name="plate_no_city_title">请选择市或地区车牌号</string>
+    <string name="plate_no_prov_city_dialog_title">选择省份和城市</string>
+    <string name="plate_no_5_hint">车牌号</string>
+    <string name="plate_no_title">车牌号：</string>
+
+    <string name="empty_str">.</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="vehicle_body_color_title">车身颜色：</string>
+    <string name="vehicle_brand_title">车辆品牌：</string>
+    <string name="select_police">选择分局：</string>
+    <string name="pick_vehicle_brand">选择车辆品牌</string>
+    <string name="pick_body_color">选择车身颜色</string>
+    <string name="pick_police">选择分局</string>
+    <string name="query">查询</string>
+    <string name="prompt_require_plate_no">请输入5位车牌号</string>
+    <string name="prompt_max_date_span">最大时间间隔是3个月，请重新选择开始时间和结束时间。</string>
+    <string name="max_date_span">3</string>
+    <string name="no_result">没有找过记录</string>
+    <string name="font_family">microsoft yahei</string>
+    <string name="vehicle_history">历史轨迹</string>
+    <string name="vehicle_info">车辆信息</string>
+    <string name="no_network_connection_toast">网络连接不可用</string>
+    <string name="network_connection_aviable_toast">已连接到网络</string>
+    <string name="query_waiting">查询中，请稍后...</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_login2">app_name</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+</resources>

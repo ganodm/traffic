@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="activeButton">#0054E3</color>
+    <color name="colorPrimary">#3d8cd1</color>
+    <color name="colorPrimaryDark">#0968b1</color>
+    <color name="colorAccent">#7311af</color>
+    <color name="colorChatBg">#d8e0e8</color>
+    <color name="colorChatView">#0000</color>
+    <color name="white">#fff</color>
+    <color name="black">#000000</color>
+    <color name="gray">#808080</color>
+    <color name="light_gray">#a9a9a9</color>
+    <color name="silver">#c0c0c0</color>
+    <color name="blue">#0000ff</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="dark_orange">#FF8C00</color>
+
+    <color name="black_overlay">#66000000</color>
+    <!-- gridView -->
+    <color name="grid_state_pressed">#1Affffff</color>
+    <color name="grid_state_focused">#80000000</color>
+</resources>
