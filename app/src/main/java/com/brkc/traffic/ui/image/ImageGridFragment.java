@@ -65,7 +65,8 @@ public class ImageGridFragment extends Fragment implements AdapterView.OnItemCli
     private static final String TAG = "ImageGridFragment";
     private static final String IMAGE_CACHE_DIR = "thumbs";
 
-    private int mImageThumbSize;
+    private int mImageThumbWidth;
+    private int mImageThumbHeightPercent;
     private int mImageThumbSpacing;
     private ImageAdapter mAdapter;
     private ImageFetcher mImageFetcher;
@@ -84,7 +85,8 @@ public class ImageGridFragment extends Fragment implements AdapterView.OnItemCli
         String extraStr = getActivity().getIntent().getStringExtra(VehicleQueryActivity.EXTRA_RESULT_NAME);
         initList(extraStr);
 
-        mImageThumbSize = getResources().getDimensionPixelSize(R.dimen.image_thumbnail_size);
+        mImageThumbWidth = getResources().getDimensionPixelSize(R.dimen.image_thumbnail_width);
+        mImageThumbHeightPercent = getResources().getInteger(R.integer.image_thumbnail_height_percent);
         mImageThumbSpacing = getResources().getDimensionPixelSize(R.dimen.image_thumbnail_spacing);
 
         mAdapter = new ImageAdapter(getActivity());
@@ -95,7 +97,7 @@ public class ImageGridFragment extends Fragment implements AdapterView.OnItemCli
         cacheParams.setMemCacheSizePercent(0.25f); // Set memory cache to 25% of app memory
 
         // The ImageFetcher takes care of loading images into our ImageView children asynchronously
-        mImageFetcher = new ImageFetcher(getActivity(), mImageThumbSize);
+        mImageFetcher = new ImageFetcher(getActivity(), mImageThumbWidth);
         mImageFetcher.setLoadingImage(R.drawable.empty_photo);
         mImageFetcher.addImageCache(getActivity().getSupportFragmentManager(), cacheParams);
     }
@@ -138,22 +140,20 @@ public class ImageGridFragment extends Fragment implements AdapterView.OnItemCli
                     @Override
                     public void onGlobalLayout() {
                         if (mAdapter.getNumColumns() == 0) {
-                            final int numColumns = (int) Math.floor(
-                                    mGridView.getWidth() / (mImageThumbSize + mImageThumbSpacing));
+                            int test = mGridView.getWidth() / (mImageThumbWidth + mImageThumbSpacing);
+                            final int numColumns = (int) Math.floor(test);
                             if (numColumns > 0) {
-                                final int columnWidth =
-                                        (mGridView.getWidth() / numColumns) - mImageThumbSpacing;
+                                int columnWidth = (mGridView.getWidth() / numColumns) - mImageThumbSpacing;
+                                final int columnHeight = columnWidth * mImageThumbHeightPercent / 100;
                                 mAdapter.setNumColumns(numColumns);
-                                mAdapter.setItemHeight(columnWidth);
+                                mAdapter.setItemHeight(columnHeight);
 
                                 Log.d(TAG, "onCreateView - numColumns set to " + numColumns);
 
                                 if (Utils.hasJellyBean()) {
-                                    mGridView.getViewTreeObserver()
-                                            .removeOnGlobalLayoutListener(this);
+                                    mGridView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                                 } else {
-                                    mGridView.getViewTreeObserver()
-                                            .removeGlobalOnLayoutListener(this);
+                                    mGridView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                                 }
                             }
                         }
@@ -284,8 +284,7 @@ public class ImageGridFragment extends Fragment implements AdapterView.OnItemCli
                     LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
             // Calculate ActionBar height
             TypedValue tv = new TypedValue();
-            if (context.getTheme().resolveAttribute(
-                    android.R.attr.actionBarSize, tv, true)) {
+            if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
                 mActionBarHeight = TypedValue.complexToDimensionPixelSize(
                         tv.data, context.getResources().getDisplayMetrics());
             }

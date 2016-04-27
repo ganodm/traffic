@@ -20,7 +20,8 @@
     <dimen name="horizontal_page_margin">@dimen/margin_medium</dimen>
     <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
 
-    <dimen name="image_thumbnail_size">100dp</dimen>
+    <dimen name="image_thumbnail_width">80dp</dimen>
+    <integer name="image_thumbnail_height_percent">75</integer>
     <dimen name="image_thumbnail_spacing">1dp</dimen>
 
 </resources>
