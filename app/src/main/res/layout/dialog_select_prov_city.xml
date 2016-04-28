@@ -87,5 +87,4 @@
             <TextView style="@style/mean_distribution_horizontal"/>
         </TableRow>
     </TableLayout>
-
 </LinearLayout>
