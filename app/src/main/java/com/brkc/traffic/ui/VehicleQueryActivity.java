@@ -18,8 +18,9 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.brkc.traffic.R;
-import com.brkc.traffic.dialog.CustomChoicePickerDialog;
+import com.brkc.traffic.dialog.CommonChoicePickerDialog;
 import com.brkc.traffic.dialog.MultiChoicePickerDialog;
+import com.brkc.traffic.dialog.PolicesDialogFragment;
 import com.brkc.traffic.dialog.ProvCityDialogFragment;
 import com.brkc.traffic.dialog.SingleChoicePickerDialog;
 import com.brkc.common.util.DateUtil;
@@ -36,7 +37,7 @@ import java.util.List;
 public class VehicleQueryActivity extends AppCompatActivity
         implements View.OnClickListener,View.OnFocusChangeListener,
             ProvCityDialogFragment.ProvCityOnChangeListener,
-        CustomChoicePickerDialog{
+        CommonChoicePickerDialog {
 
     private static final String TAG = "BRKC_VehicleQueryActivi";
 
@@ -285,7 +286,7 @@ public class VehicleQueryActivity extends AppCompatActivity
 
 
     @Override
-    public void onChange(CustomChoicePickerDialog dialog, int res_code_array, Object names, Object codes) {
+    public void onChange(CommonChoicePickerDialog dialog, int res_code_array, Object names, Object codes) {
         switch (res_code_array){
             case R.array.vehicle_brand:
                 textVehicleBrand.setText(names.toString());
@@ -366,8 +367,20 @@ public class VehicleQueryActivity extends AppCompatActivity
         brandPicker.show(fragmentManager, "dialog");
     }
 
-    MultiChoicePickerDialog policeDialog;
+    PolicesDialogFragment policePicker;
     private void openPoliceMultiPickerDialog(View v) {
+        FragmentManager fragmentManager = getFragmentManager();
+        if(policePicker == null) {
+            policePicker = new PolicesDialogFragment();
+            policePicker.res_code_array = R.array.police_code;
+            policePicker.res_name_array = R.array.police_name;
+            policePicker.res_title_string = R.string.pick_police;
+        }
+        policePicker.show(fragmentManager, "dialog");
+    }
+
+    MultiChoicePickerDialog policeDialog;
+    private void openPoliceMultiPickerDialog2(View v) {
         FragmentManager fragmentManager = getFragmentManager();
         if(policeDialog == null) {
             policeDialog = new MultiChoicePickerDialog();
