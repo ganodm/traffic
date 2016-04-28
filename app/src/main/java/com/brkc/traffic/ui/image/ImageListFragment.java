@@ -254,21 +254,6 @@ public class ImageListFragment extends Fragment implements AdapterView.OnItemCli
             return ((VehicleResult)getItem(position)).getXh();
         }
 
-        @Override
-        public int getViewTypeCount() {
-            // 两种类型，一个是有缩略图的，一个是没有缩略图的
-            return 1;
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-            return 0;
-        }
-
-        @Override
-        public boolean hasStableIds() {
-            return true;
-        }
 
         @Override
         public View getView(int position, View convertView, ViewGroup container) {
