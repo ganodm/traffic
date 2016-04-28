@@ -276,7 +276,7 @@ public class ImageListFragment extends Fragment implements AdapterView.OnItemCli
             }
 
             int color = 0;
-            if(item.getPlateColor().equals("1") || item.getPlateColor().indexOf("蓝")>=0) {
+            if(item.getPlateColor().equals("1") || item.getPlateColor().contains("蓝")) {
                 color = mContext.getResources().getColor(R.color.blue);
             }else{
                 color = mContext.getResources().getColor(R.color.dark_orange);
