@@ -27,7 +27,7 @@ public class MultiChoicePickerDialog extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        listener = (CustomChoicePickerDialog) getActivity();
+        listener = (CommonChoicePickerDialog) getActivity();
 
         if(nameList == null){
             nameList = getResources().getStringArray(name_string_array);
@@ -78,6 +78,6 @@ public class MultiChoicePickerDialog extends DialogFragment {
         return builder.create();
     }
 
-    private CustomChoicePickerDialog listener;
+    private CommonChoicePickerDialog listener;
 
 }

@@ -6,8 +6,6 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
-import com.brkc.traffic.R;
-
 /**
  * Created by Administrator on 16-4-21.
  */
@@ -19,7 +17,7 @@ public class SingleChoicePickerDialog extends DialogFragment{
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        listener = (CustomChoicePickerDialog) getActivity();
+        listener = (CommonChoicePickerDialog) getActivity();
         if(listItems == null){
             listItems = getResources().getStringArray(res_name_array);
         }
@@ -34,6 +32,6 @@ public class SingleChoicePickerDialog extends DialogFragment{
         return builder.create();
     }
 
-    private CustomChoicePickerDialog listener;
+    private CommonChoicePickerDialog listener;
 
 }
