@@ -73,6 +73,9 @@ public abstract class ImageWorker {
      * @param imageView The ImageView to bind the downloaded image to.
      */
     public void loadImage(Object data, ImageView imageView) {
+        Log.d(TAG,"data=" + data);
+
+
         if (data == null) {
             return;
         }
@@ -82,7 +85,7 @@ public abstract class ImageWorker {
         if (mImageCache != null) {
             value = mImageCache.getBitmapFromMemCache(String.valueOf(data));
         }
-
+        Log.d(TAG,"cachye value=" + value);
         if (value != null) {
             // Bitmap found in memory cache
             imageView.setImageDrawable(value);

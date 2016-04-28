@@ -11,6 +11,7 @@ import com.brkc.traffic.ui.VehicleQueryActivity;
 import com.brkc.traffic.ui.VehicleQueryResultActivity;
 import com.brkc.common.util.AndroidUtil;
 import com.brkc.traffic.ui.image.ImageGridActivity;
+import com.brkc.traffic.ui.image.ImageListActivity;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -39,7 +40,7 @@ public class TestActivity extends AppCompatActivity {
     }
 
     public void showGridViewActivity(View view){
-        Intent intent = AndroidUtil.createIntent(this, ImageGridActivity.class);
+        Intent intent = AndroidUtil.createIntent(this, ImageListActivity.class);
         intent.putExtra(VehicleQueryActivity.EXTRA_RESULT_NAME,VehicleQueryResult.result4Extra);
         startActivity(intent);
     }

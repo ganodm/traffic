@@ -25,6 +25,7 @@ import com.brkc.traffic.dialog.SingleChoicePickerDialog;
 import com.brkc.common.util.DateUtil;
 import com.brkc.common.net.HttpUtil;
 import com.brkc.common.util.StringUtil;
+import com.brkc.traffic.ui.image.ImageListActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -463,7 +464,7 @@ public class VehicleQueryActivity extends AppCompatActivity
             }
 
 
-            Intent intent = new Intent(getActivity(),VehicleQueryResultActivity.class);
+            Intent intent = new Intent(getActivity(),ImageListActivity.class);
             intent.putExtra(EXTRA_RESULT_NAME,result);
             startActivityForResult(intent, CODE_SHOW_RESULT);
 

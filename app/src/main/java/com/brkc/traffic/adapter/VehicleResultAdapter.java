@@ -59,10 +59,18 @@ public class VehicleResultAdapter extends ArrayAdapter<VehicleResult> {
         }
         String plate = item.getPlateNo() + "," + item.getPlateColor();
 
-        if(item.getThumb().length()>0)
+        int visibility ;
+        if(item.getThumb().length()>0) {
+            visibility = View.VISIBLE;
             imageLoader.showImageAsyn(viewHolder.thumbImage, item.getThumb(), R.drawable.ajax_loader);
-        else
+        }
+        else {
             viewHolder.thumbImage.setImageResource(R.drawable.no_image);
+            visibility = View.GONE;
+        }
+        if(visibility != viewHolder.thumbImage.getVisibility()){
+            viewHolder.thumbImage.setVisibility(visibility);
+        }
 
         viewHolder.textPlateNo.setText(item.getPlateNo());
         viewHolder.textPlateNo.setTextColor(color);

@@ -51,7 +51,7 @@
 
         <activity android:name=".ui.image.ImageGridActivity"
             android:label="@string/app_name"/>
-
+        <activity android:name=".ui.image.ImageListActivity" />
         <activity
             android:name=".ui.image.ImageDetailActivity"
             android:parentActivityName=".ui.image.ImageGridActivity" >

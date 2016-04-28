@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.brkc.traffic.ui.image.RecyclingImageView
+        android:id="@+id/image_thumb"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ajax_loader" />
+    <LinearLayout
+        android:id="@+id/plate"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/plate_no"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/big_text_size"
+            android:textColor="@color/dark_orange"
+            android:textStyle="bold"
+            android:text="黑ET6219"/>
+        <TextView
+            android:id="@+id/pass_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:text="04-21 15:26:32"/>
+
+        <TextView
+            android:id="@+id/cross_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:text="让胡路乘风南三路-银海街铁人中学对面西向东1"/>
+    </LinearLayout>
+
+</LinearLayout>
