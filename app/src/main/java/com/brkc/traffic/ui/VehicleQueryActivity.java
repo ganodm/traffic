@@ -31,6 +31,7 @@ import com.brkc.traffic.ui.image.ImageListActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -118,6 +119,14 @@ public class VehicleQueryActivity extends AppCompatActivity
             case R.id.button_vehicle_query:
                 doVehicleQuery();
                 break;
+
+
+            case R.id.select_all_police:
+                policeOnSelectAll();
+                break;
+            case R.id.clear_all_police:
+                policeOnUnSelectAll();
+                break;
             default:
         }
     }
@@ -167,7 +176,7 @@ public class VehicleQueryActivity extends AppCompatActivity
          ***************************************************/
         buttonSelectProvCity = initButtonWithOnClick(R.id.button_select_prov_city);
         textProv = initTextWithDefaultValue(R.id.text_prov,R.string.plate_no_prov_default);
-        textCity = initTextWithDefaultValue(R.id.text_city,R.string.plate_no_city_default);
+        textCity = initTextWithDefaultValue(R.id.text_city, R.string.plate_no_city_default);
         textPlateNO = (EditText)findViewById(R.id.plate_no);
 
 
@@ -178,6 +187,8 @@ public class VehicleQueryActivity extends AppCompatActivity
         textBodyColor = initEditWithOnClickOnFocus(R.id.vehicle_body_color);
         textVehicleBrand = initEditWithOnClickOnFocus(R.id.vehicle_brand);
         textPolice = initEditWithOnClickOnFocus(R.id.select_police);
+        initEditWithOnClickOnFocus(R.id.select_all_police);
+        initEditWithOnClickOnFocus(R.id.clear_all_police);
         buttonVehicleQuery = initButtonWithOnClick(R.id.button_vehicle_query);
 
         if(!HttpUtil.isNetworkAvailable()){
@@ -207,9 +218,15 @@ public class VehicleQueryActivity extends AppCompatActivity
     }
 
     private EditText initEditWithOnClickOnFocus(int res_id){
-        EditText editText = (EditText)findViewById(res_id);
-        editText.setOnClickListener(this);
-        editText.setOnFocusChangeListener(this);
+        View view = findViewById(res_id);
+        view = findViewById(res_id);
+        view.setOnClickListener(this);
+        view.setOnFocusChangeListener(this);
+
+        EditText editText = null;
+        if(view instanceof EditText)
+            editText = (EditText)view;
+
         return editText;
     }
 
@@ -301,6 +318,7 @@ public class VehicleQueryActivity extends AppCompatActivity
 
             case R.array.police_code:
                 String policeName = names.toString();
+                policeName = policeName.replaceAll("分局","").replaceAll("县局", "");
                 List policeList = (List)codes;
                 String polices = StringUtil.join(policeList, ",");
                 textPolice.setText(policeName.substring(1, policeName.length()-1));
@@ -367,8 +385,14 @@ public class VehicleQueryActivity extends AppCompatActivity
         brandPicker.show(fragmentManager, "dialog");
     }
 
+    /***************************************************
+     *               选择分局
+     ***************************************************/
+    @Deprecated
     PolicesDialogFragment policePicker;
-    private void openPoliceMultiPickerDialog(View v) {
+
+    @Deprecated
+    private void openPoliceMultiPickerDialog2(View v) {
         FragmentManager fragmentManager = getFragmentManager();
         if(policePicker == null) {
             policePicker = new PolicesDialogFragment();
@@ -380,17 +404,48 @@ public class VehicleQueryActivity extends AppCompatActivity
     }
 
     MultiChoicePickerDialog policeDialog;
-    private void openPoliceMultiPickerDialog2(View v) {
+
+    /**
+     * 打开分局选择对话框
+     * @param v
+     */
+    private void openPoliceMultiPickerDialog(View v) {
         FragmentManager fragmentManager = getFragmentManager();
+        initPolicePickerDialog();
+        policeDialog.show(fragmentManager, "dialog");
+    }
+
+    /**
+     * 初始化分局选择对话框，通用代码
+     */
+    private void initPolicePickerDialog(){
         if(policeDialog == null) {
             policeDialog = new MultiChoicePickerDialog();
             policeDialog.code_string_array = R.array.police_code;
             policeDialog.name_string_array = R.array.police_name;
             policeDialog.title_string = R.string.pick_police;
         }
-        policeDialog.show(fragmentManager, "dialog");
     }
 
+    /**
+     * 选择全部分局
+     */
+    private void policeOnSelectAll(){
+        initPolicePickerDialog();
+        List sels = policeDialog.selectAll(getResources());
+        CommonChoicePickerDialog dialog = null;
+        this.onChange(dialog,R.array.police_code,sels.get(1),sels.get(0));
+    }
+
+    /**
+     * 清除已选的分局
+     */
+    private void policeOnUnSelectAll(){
+        initPolicePickerDialog();
+        policeDialog.unSelectAll(getResources());
+        CommonChoicePickerDialog dialog = null;
+        this.onChange(dialog, R.array.police_code, new ArrayList(), new ArrayList());
+    }
     /***************************************************
      *               查询操作
      ***************************************************/

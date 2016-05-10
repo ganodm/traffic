@@ -87,6 +87,21 @@
                 android:id="@+id/select_police"
                 style="@style/date_time_edit_text"/>
         </TableRow>
+        <TableRow>
+            <TextView />
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_span="4">
+                <Button
+                    android:layout_height="wrap_content" android:layout_width="wrap_content"
+                    android:id="@+id/select_all_police" android:text="@string/all_police"/>
+                <Button
+                    android:layout_height="wrap_content" android:layout_width="wrap_content"
+                    android:id="@+id/clear_all_police" android:text="@string/clear_police"/>
+            </LinearLayout>
+        </TableRow>
     </TableLayout>
     <Button
         android:id="@+id/button_vehicle_query"

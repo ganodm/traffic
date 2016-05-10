@@ -21,6 +21,7 @@
         <TableRow>
             <Button android:id="@+id/login"
                 android:layout_span="2"
+                style="@style/button_action"
                 android:text="@string/login_button_text"/>
         </TableRow>
         <TableRow>

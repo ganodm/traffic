@@ -10,43 +10,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="showLoginActivity"
-        android:text="showLoginActivity"/>
+        android:background="@drawable/button_action"
+        android:text="登录界面"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="showMainActivity"
-        android:text="showMainActivity"/>
+        android:background="@drawable/button_action"
+        android:text="主界面/功能选择界面"/>
 
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_pressed"
+        android:background="@drawable/button_action"
         android:onClick="showVehicleQueryActivity"
-        android:text="showVehicleQueryActivity"/>
+        android:text="车辆查询"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="showVehicleQueryResultActivity"
-        android:text="showVehicleQueryResultActivity"/>
+        android:text="车辆查询结果"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="showGridViewActivity"
-        android:text="showGridViewActivity"/>
+        android:text="Grid View"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="button_selector"
-        android:background="@drawable/button_action"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="disabled"
+        android:text="无效按钮"
         android:enabled="false"
         android:background="@drawable/button_action"
         />

@@ -83,5 +83,8 @@
     </string>
     <string name="unselect_all">全不选</string>
     <string name="select_all">全选</string>
+    <string name="clear">清除</string>
+    <string name="all_police">全部分局</string>
+    <string name="clear_police">清除已选分局</string>
 
 </resources>
