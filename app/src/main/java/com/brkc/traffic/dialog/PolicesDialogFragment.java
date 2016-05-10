@@ -8,21 +8,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.text.TextPaint;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.brkc.traffic.R;
-import com.brkc.traffic.ui.image.RecyclingImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,21 +26,24 @@ import java.util.List;
 public class PolicesDialogFragment extends DialogFragment
         implements AdapterView.OnItemClickListener, DialogInterface.OnClickListener {
 
-    private static final int COLS = 8;
     private static final String TAG = "PolicesDialogFragment";
 
     private Activity activity;
     private CommonChoicePickerDialog listener;
+    private GridView mGridView;
 
     private List<Dict> dictList;
-    private List<String> codeList = new ArrayList<String>();
-    private List<String> nameList = new ArrayList<String>();
+    private List<String> codeList = new ArrayList<>();
+    private List<String> nameList = new ArrayList<>();
     private int selectedColor;
     private int defaultColor;
+    private int whiteColor;
 
     public int res_code_array;
     public int res_name_array;
     public int res_title_string;
+
+    private int selectAllFlag = 0;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -60,15 +56,19 @@ public class PolicesDialogFragment extends DialogFragment
 
         initList(view);
 
-        GridView gridView = (GridView)view.findViewById(R.id.gridView);
+        mGridView = (GridView)view.findViewById(R.id.gridView);
         MyAdapter myAdapter = new MyAdapter(activity, dictList,this);
-        gridView.setAdapter(myAdapter);
-        gridView.setOnItemClickListener(this);
+        mGridView.setAdapter(myAdapter);
+        mGridView.setOnItemClickListener(this);
 
+        String title = activity.getString(R.string.select_all) + "/" +
+                activity.getString(R.string.unselect_all);
         builder.setView(view)
                 .setTitle(res_title_string)
+                .setNeutralButton(title,this)
                 .setPositiveButton(R.string.ok, PolicesDialogFragment.this)
                 .setNegativeButton(R.string.cancel, null);
+
         return builder.create();
     }
 
@@ -76,8 +76,9 @@ public class PolicesDialogFragment extends DialogFragment
         Resources res = view.getResources();
         selectedColor = res.getColor(R.color.activeButton);
         defaultColor = res.getColor(R.color.gray);
+        whiteColor = res.getColor(R.color.white);
 
-        dictList = new ArrayList<Dict>();
+        dictList = new ArrayList<>();
         String[] codes = res.getStringArray(res_code_array);
         String[] names = res.getStringArray(res_name_array);
         for (int i = 0, len = codes.length; i < len; i++) {
@@ -94,21 +95,61 @@ public class PolicesDialogFragment extends DialogFragment
 
         int index = isChecked(textView.getTag().toString());
         if(index>=0){
-            textView.setTextColor(0);
+            setItemOutlook(textView, false);
             codeList.remove(index);
             nameList.remove(index);
         }
         else{
-            textView.setTextColor(selectedColor);
+            setItemOutlook(textView, true);
             codeList.add(textView.getTag().toString());
             nameList.add(textView.getText().toString());
+        }
+
+    }
+
+    private void setItemOutlook(TextView view, boolean selected){
+
+        if(selected){
+            view.setTextColor(whiteColor);
+            view.setBackgroundColor(selectedColor);
+        }else{
+            view.setTextColor(defaultColor);
+            view.setBackgroundColor(whiteColor);
         }
     }
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
-        listener.onChange(null,R.array.police_code,nameList, codeList);
+        if (which == DialogInterface.BUTTON_POSITIVE) {
+            listener.onChange(null, R.array.police_code, nameList, codeList);
+        }
+        else if (which==DialogInterface.BUTTON_NEUTRAL){
+            if(selectAllFlag==0){
+                select(true);
+                selectAllFlag = 1;
+            }else{
+                selectAllFlag = 0;
+                select(false);
+            }
+            listener.onChange(null, R.array.police_code, nameList, codeList);
+        }
     }
+
+    private void select(boolean selectAll) {
+        codeList = new ArrayList<>();
+        nameList = new ArrayList<>();
+
+        int len = mGridView.getChildCount();
+        for (int i = 0; i < len; i++) {
+            TextView textView = (TextView)mGridView.getChildAt(i);
+            setItemOutlook(textView,selectAll);
+            if(selectAll){
+                codeList.add(textView.getTag().toString());
+                nameList.add(textView.getText().toString());
+            }
+        }
+    }
+
 
 
     class MyAdapter<T> extends CommonAdapter<T>
@@ -131,14 +172,15 @@ public class PolicesDialogFragment extends DialogFragment
             TextView textView = new TextView(mContext);
             textView.setText(item.name);
             textView.setTag(item.code);
+            textView.setPadding(0, 10, 0, 10);
             textView.setLayoutParams(mImageViewLayoutParams);
             textView.setGravity(View.TEXT_ALIGNMENT_GRAVITY);
 
             if(mDialog.isChecked(item.code)>=0){
-                textView.setTextColor(selectedColor);
+                setItemOutlook(textView, true);
             }
             else{
-                textView.setTextColor(defaultColor);
+                setItemOutlook(textView, false);
             }
             return textView;
         }

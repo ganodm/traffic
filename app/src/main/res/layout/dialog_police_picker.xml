@@ -1,38 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gridView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <GridView
-        android:id="@+id/gridView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-
-        android:listSelector="@drawable/photogrid_list_selector"
-        android:columnWidth="@dimen/image_thumbnail_width"
-        android:numColumns="auto_fit"
-        android:stretchMode="columnWidth"
-        android:horizontalSpacing="@dimen/margin_small"
-        android:verticalSpacing="@dimen/margin_small" >
-
-    </GridView>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/button_select_all"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/select_all"/>
-        <Button
-            android:id="@+id/button_unselect_all"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/unselect_all"/>
-    </LinearLayout>
-</LinearLayout>
+    android:layout_height="wrap_content"
+    android:drawSelectorOnTop="true"
+    android:listSelector="@drawable/photogrid_list_selector"
+    android:columnWidth="@dimen/image_thumbnail_width"
+    android:numColumns="auto_fit"
+    android:stretchMode="columnWidth"
+    android:horizontalSpacing="@dimen/image_thumbnail_spacing"
+    android:verticalSpacing="@dimen/image_thumbnail_spacing">
+</GridView>

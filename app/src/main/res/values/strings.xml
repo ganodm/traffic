@@ -81,5 +81,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="unselect_all">全不选</string>
+    <string name="select_all">全选</string>
 
 </resources>

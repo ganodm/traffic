@@ -23,5 +23,6 @@
     <dimen name="image_thumbnail_width">80dp</dimen>
     <integer name="image_thumbnail_height_percent">75</integer>
     <dimen name="image_thumbnail_spacing">1dp</dimen>
+    <dimen name="image_big_spacing">2dp</dimen>
 
 </resources>
