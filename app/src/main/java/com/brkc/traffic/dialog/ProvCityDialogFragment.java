@@ -38,9 +38,17 @@ public class ProvCityDialogFragment extends DialogFragment
     private Activity activity;
     private TableLayout provTable;
     private TableLayout cityTable;
+    private TextView preProv = null;
+    private TextView proCity = null;
 
+    private Resources res;
     private ProvCityOnChangeListener listener;
     private String[] cityList;
+
+    private int defaultColorRes = R.color.gray;
+    private int selectedColorRes = R.color.white;
+    private int defaultBkRes = R.drawable.multi_options_default;
+    private int selectedBkRes = R.drawable.multi_options_pressed;
 
     private int defaultColor;
     private int selectedColor;
@@ -57,7 +65,7 @@ public class ProvCityDialogFragment extends DialogFragment
         resetTextColor(type);
 
         TextView button = (TextView)v;
-        selected(button);
+        selected(button,type);
 
         String text = button.getText().toString();
         listener.onChange(null, type, text);
@@ -67,11 +75,27 @@ public class ProvCityDialogFragment extends DialogFragment
         }
     }
 
-    private void selected(TextView textView){
+    private void selected(TextView textView, int itemType){
+        if(itemType == TYPE_PROV){
+            if(preProv != null){
+                preProv.setTextColor(defaultColor);
+                preProv.setBackgroundResource(defaultBkRes);
+            }
+
+            preProv = textView;
+        }
+        else if(itemType == TYPE_CITY ){
+            if( proCity != null){
+                proCity.setTextColor(defaultColor);
+                proCity.setBackgroundResource(defaultBkRes);
+            }
+            proCity = textView;
+        }
         textView.setTextColor(selectedColor);
-        TextPaint tp = textView.getPaint();
-        tp.setFakeBoldText(true);
+        textView.setBackgroundResource(selectedBkRes);
+
     }
+
     private void resetTextColor(int type){
         TableLayout tableLayout ;
         if(type == TYPE_CITY){
@@ -121,13 +145,13 @@ public class ProvCityDialogFragment extends DialogFragment
 
         listener = (ProvCityOnChangeListener) activity;
 
-        Resources res = view.getResources();
+        res = view.getResources();
         String provStr = res.getString(R.string.province_list);
         String cityListStr = res.getString(R.string.city_list);
         cityList = cityListStr.split(",");
 
-        defaultColor = res.getColor(R.color.gray);
-        selectedColor = res.getColor(R.color.colorAccent);
+        defaultColor = res.getColor(defaultColorRes);
+        selectedColor = res.getColor(selectedColorRes);
 
         initProvTable(provStr);
 
@@ -153,6 +177,9 @@ public class ProvCityDialogFragment extends DialogFragment
         //布局
         TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(0,
                 ViewGroup.LayoutParams.WRAP_CONTENT,1);
+        int margin = res.getDimensionPixelOffset(R.dimen.image_big_spacing);
+        layoutParams.leftMargin = margin;
+        layoutParams.topMargin = margin;
 
         // 依次添加省份
         TableRow row = null;
@@ -179,13 +206,14 @@ public class ProvCityDialogFragment extends DialogFragment
             button.setText(text);
             button.setGravity(Gravity.CENTER);
             button.setTextColor(defaultColor);
-            button.setTextSize(20);
+            int fontSize = res.getDimensionPixelSize(R.dimen.small_text_size);
+            button.setTextSize(fontSize);
+            button.setBackgroundResource(defaultBkRes);
             button.setLayoutParams(layoutParams);
             button.setTag(itemType + "," + index++);
 
             button.setOnClickListener(ProvCityDialogFragment.this);
 
-            button.setPadding(0,16,0,0);
             row.addView(button);
 
             // set a default button_sel
@@ -208,7 +236,7 @@ public class ProvCityDialogFragment extends DialogFragment
             }
         }
         if(defaultButton != null){
-            selected(defaultButton);
+            selected(defaultButton,itemType);
         }
         return defaultButton;
     }
