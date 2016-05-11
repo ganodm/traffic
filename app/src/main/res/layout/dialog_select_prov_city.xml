@@ -19,45 +19,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TableRow>
-            <TextView android:text="黑" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="京" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="沪" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="津" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="渝" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="翼" style="@style/mean_distribution_horizontal"
-                android:textSize="20sp" />
-            <TextView android:text="晋" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="辽" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="黑" style="@style/option"/>
+            <TextView android:text="京" style="@style/option"/>
+            <TextView android:text="沪" style="@style/option"/>
+            <TextView android:text="津" style="@style/option"/>
+            <TextView android:text="渝" style="@style/option"/>
+            <TextView android:text="翼" style="@style/option"/>
+            <TextView android:text="晋" style="@style/option"/>
+            <TextView android:text="辽" style="@style/option"/>
         </TableRow>
         <TableRow>
-            <TextView android:text="吉" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="苏" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="浙" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="皖" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="闽" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="赣" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="鲁" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="豫" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="吉" style="@style/option"/>
+            <TextView android:text="苏" style="@style/option"/>
+            <TextView android:text="浙" style="@style/option"/>
+            <TextView android:text="皖" style="@style/option"/>
+            <TextView android:text="闽" style="@style/option"/>
+            <TextView android:text="赣" style="@style/option"/>
+            <TextView android:text="鲁" style="@style/option"/>
+            <TextView android:text="豫" style="@style/option"/>
         </TableRow>
         <TableRow>
-            <TextView android:text="鄂" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="湘" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="粤" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="琼" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="川" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="贵" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="云" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="陕" style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="鄂" style="@style/option"/>
+            <TextView android:text="湘" style="@style/option"/>
+            <TextView android:text="粤" style="@style/option" android:enabled="false"/>
+            <TextView android:text="琼" style="@style/option"/>
+            <TextView android:text="川" style="@style/option"/>
+            <TextView android:text="贵" style="@style/option"/>
+            <TextView android:text="云" style="@style/option"/>
+            <TextView android:text="陕" style="@style/option"/>
         </TableRow>
         <TableRow>
-            <TextView android:text="甘" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="青" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="蒙" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="桂" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="藏" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="宁" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="新" style="@style/mean_distribution_horizontal"/>
-            <TextView style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="甘" style="@style/option"/>
+            <TextView android:text="青" style="@style/option"/>
+            <TextView android:text="蒙" style="@style/option"/>
+            <TextView android:text="桂" style="@style/option"/>
+            <TextView android:text="藏" style="@style/option"/>
+            <TextView android:text="宁" style="@style/option"/>
+            <TextView android:text="新" style="@style/option"/>
+            <TextView style="@style/uniform_horizontal"/>
         </TableRow>
     </TableLayout>
 
@@ -77,14 +76,14 @@
         android:layout_height="wrap_content">
 
         <TableRow>
-            <TextView android:text="甘" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="青" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="蒙" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="桂" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="藏" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="宁" style="@style/mean_distribution_horizontal"/>
-            <TextView android:text="新" style="@style/mean_distribution_horizontal"/>
-            <TextView style="@style/mean_distribution_horizontal"/>
+            <TextView android:text="甘" style="@style/option"/>
+            <TextView android:text="青" style="@style/option"/>
+            <TextView android:text="蒙" style="@style/option"/>
+            <TextView android:text="桂" style="@style/option"/>
+            <TextView android:text="藏" style="@style/option"/>
+            <TextView android:text="宁" style="@style/option"/>
+            <TextView android:text="新" style="@style/option"/>
+            <TextView style="@style/uniform_horizontal"/>
         </TableRow>
     </TableLayout>
 </LinearLayout>
