@@ -565,9 +565,15 @@ public class ImageCache {
     public static File getDiskCacheDir(Context context, String uniqueName) {
         // Check if media is mounted or storage is built-in, if so, try and use external cache dir
         // otherwise use internal cache dir
-        final String cachePath =
-                Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState()) ||
-                        !isExternalStorageRemovable() ? getExternalCacheDir(context).getPath() :
+        boolean test1 = Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
+        boolean test2 = !isExternalStorageRemovable();
+        boolean test3 = getExternalCacheDir(context) != null;
+        Log.d(TAG,"test1=" + test1);
+        Log.d(TAG,"test2=" + test2);
+        Log.d(TAG,"getExternalCacheDir(context)=" + getExternalCacheDir(context));
+        Log.d(TAG,"context.getCacheDir()=" + context.getCacheDir());
+        final String cachePath = (test1 || test2) && test3
+                         ? getExternalCacheDir(context).getPath() :
                                 context.getCacheDir().getPath();
 
         return new File(cachePath + File.separator + uniqueName);
