@@ -40,10 +40,10 @@
         <TableRow>
             <TextView android:text="@string/plate_no_title"
                 android:gravity="right" />
-            <Button
+            <TextView
                 android:id="@+id/button_select_prov_city"
-                android:text="选择城市"
-                android:layout_width="wrap_content" />
+                android:text="@string/plate_no_city_button_text"
+                style="@style/button_small"/>
 
             <TextView
                 android:id="@+id/text_prov"
@@ -94,12 +94,13 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_span="4">
-                <Button
-                    android:layout_height="wrap_content" android:layout_width="wrap_content"
-                    android:id="@+id/select_all_police" android:text="@string/all_police"/>
-                <Button
-                    android:layout_height="wrap_content" android:layout_width="wrap_content"
-                    android:id="@+id/clear_all_police" android:text="@string/clear_police"/>
+                <TextView
+                    android:id="@+id/select_all_police" android:text="@string/all_police"
+                    style="@style/button_small"/>
+                <TextView
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:id="@+id/clear_all_police" android:text="@string/clear_police"
+                    style="@style/button_small"/>
             </LinearLayout>
         </TableRow>
     </TableLayout>
@@ -107,6 +108,7 @@
         android:id="@+id/button_vehicle_query"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fab_margin"
         android:text="@string/query"
         style="@style/button_action"/>
 </LinearLayout>

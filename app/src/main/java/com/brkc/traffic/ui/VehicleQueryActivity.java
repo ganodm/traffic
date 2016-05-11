@@ -231,8 +231,12 @@ public class VehicleQueryActivity extends AppCompatActivity
     }
 
     private Button initButtonWithOnClick(int res_id){
-        Button button = (Button)findViewById(res_id);
-        button.setOnClickListener(this);
+        View view = findViewById(res_id);
+        view.setOnClickListener(this);
+
+        Button button = null;
+        if(view instanceof Button)
+            button = (Button)view;
         return button;
     }
     private TextView initTextWithDefaultValue(int viewId,int res_default_value){

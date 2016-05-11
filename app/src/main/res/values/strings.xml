@@ -86,5 +86,6 @@
     <string name="clear">清除</string>
     <string name="all_police">全部分局</string>
     <string name="clear_police">清除已选分局</string>
+    <string name="plate_no_city_button_text">选择城市</string>
 
 </resources>
