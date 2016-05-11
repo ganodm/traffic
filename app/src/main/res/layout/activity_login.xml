@@ -9,22 +9,22 @@
     <TableLayout
         style="@style/body_table_layout">
 
-        <TableRow>
+        <TableRow android:layout_marginTop="@dimen/activity_vertical_margin">
             <TextView android:text="@string/login_account_title"/>
             <EditText android:id="@+id/account" android:hint="@string/login_account_hint"/>
         </TableRow>
-        <TableRow>
+        <TableRow android:layout_marginTop="@dimen/margin_tiny">
             <TextView android:text="@string/login_password_title"/>
             <EditText android:id="@+id/password" android:hint="@string/login_password_hint"
                 android:inputType="textPassword"/>
         </TableRow>
-        <TableRow>
+        <TableRow android:layout_marginTop="@dimen/margin_tiny">
             <Button android:id="@+id/login"
                 android:layout_span="2"
                 style="@style/button_action"
                 android:text="@string/login_button_text"/>
         </TableRow>
-        <TableRow>
+        <TableRow android:layout_marginTop="@dimen/activity_vertical_margin">
             <CheckBox android:id="@+id/checkbox_remember_password"/>
             <TextView android:text="@string/login_remember_password"/>
         </TableRow>
